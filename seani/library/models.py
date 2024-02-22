@@ -1,5 +1,6 @@
 from django.db import models
 
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class Module(models.Model):
@@ -8,6 +9,11 @@ class Module(models.Model):
     description = models.CharField(max_length=200,
                                    verbose_name="Descripcion")
 
+                           
+    def num_questions(self):
+
+        return self.question_set.count()
+    num_questions.short_description = "Numero de preguntas"
 
     def __str__(self):
         return self.name
@@ -24,20 +30,28 @@ class Question(models.Model):
                                      verbose_name='Texto de la pregunta', 
                                      null = True,
                                      blank=True)
-    question_image= models.ImageField(upload_to='questions',
-                                  verbose_name="Imagen de la pregunta",
-                                  null=True,
-                                  blank=True)
+    #question_image= models.ImageField(upload_to='questions',
+     #                             verbose_name="Imagen de la pregunta",
+      #                            null=True,
+       #                           blank=True)
+    question_image  = CloudinaryField(
+        verbose_name = 'Imagen de la pregunta',
+        folder = 'questions',
+        resource_type = 'image',
+        null = True, blank = True
+    )
     answer1 = models.CharField(max_length=200,
                                verbose_name = 'Respuesta A')
     answer2 = models.CharField(max_length=200,
                                verbose_name = 'Respuesta B')
     answer3 = models.CharField(max_length=200,
                                verbose_name = 'Respuesta C',
-                               null=True)
+                               null=True,
+                               blank=True)
     answer4 = models.CharField(max_length=200,
                                verbose_name = 'Respuesta D',
-                               null=True)
+                               null=True,
+                               blank=True)
     correct = models.CharField(max_length=5,
                                verbose_name = 'Respuesta correcta')
     
