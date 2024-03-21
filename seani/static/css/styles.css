@@ -1,0 +1,36 @@
+body{
+    padding: 10%;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+h1{
+    color: rgb(26, 28, 126);
+    font-size: 50px;
+}
+
+button{
+    background-color:rgb(22, 25, 226) ;
+    padding: 1%;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+.module{
+    font-size: 20px;
+    font-weight: 800;
+    color: purple;
+    margin: 5%;
+    text-decoration: none;
+}
+#botonSalir{
+    font-size: large;
+    width: 10%;
+    margin: 20px;
+    padding: 8pt;
+    color: aliceblue;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 5px;
+}
